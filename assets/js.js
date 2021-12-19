@@ -1,6 +1,6 @@
 const btns = document.querySelector('.tablero');
 let turno = 0;
-let comprobarUltimaJugada = false;
+let comprobarUltimaJugada;
 let puntuacionJugador = 0;
 let puntuacionMaquina = 0;
 let posicionJugador = [];
@@ -89,14 +89,14 @@ const winCondition = (player) => {
             puntuacionJugador++;
             setTimeout(()=>{
                 alert('Jugador 1 gana de fila o columna');
-                comprobarUltimaJugada = true;
+                comprobarUltimaJugada = false;
                 borradoClases();
             }, 250);
         }else if(diagonalUno==true){
             puntuacionJugador++;
             setTimeout(()=>{
                 alert('Jugador 1 gana de tremenda diagonal');
-                comprobarUltimaJugada = true;
+                comprobarUltimaJugada = false;
                 borradoClases();
             }, 250);
         }else if(posicionJugador.length==5){
@@ -115,14 +115,14 @@ const winCondition = (player) => {
             puntuacionMaquina++;
             setTimeout(()=>{
                 alert('Jugador 2 gana de fila o columnas');
-                comprobarUltimaJugada = true;
+                comprobarUltimaJugada = false;
                 borradoClases();
             }, 250);
         }else if(diagonalUno==true){
             puntuacionMaquina++;
             setTimeout(()=>{
                 alert('Jugador 2 ha ganado de tremenda diagonal');
-                comprobarUltimaJugada = true;
+                comprobarUltimaJugada = false;
                 borradoClases();
             }, 250);
         }else if(posicionMaquina.length==5){
@@ -147,7 +147,7 @@ btns.addEventListener('click', (event)=>{
             turno++;
             winCondition(true);
             winCondition(false);
-            if(comprobarUltimaJugada==false){
+            if(comprobarUltimaJugada==true){
                 if(posicionJugador.length==5){
                     setTimeout(()=>{
                         alert('La partida ha acabado en un empate');
