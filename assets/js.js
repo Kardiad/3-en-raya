@@ -99,6 +99,8 @@ const winCondition = (player) => {
                 comprobarUltimaJugada = true;
                 borradoClases();
             }, 250);
+        }else if(posicionJugador.length==5){
+            comprobarUltimaJugada = true;
         }
     }else{
         let diagonalUno = false;
@@ -123,6 +125,8 @@ const winCondition = (player) => {
                 comprobarUltimaJugada = true;
                 borradoClases();
             }, 250);
+        }else if(posicionMaquina.length==5){
+            comprobarUltimaJugada = true;
         }
     }
     puntitos();
